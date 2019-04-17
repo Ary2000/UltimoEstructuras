@@ -1,0 +1,8 @@
+﻿  token.cpp
+c:\users\aryel\source\repos\experimento\experimento\tokenizador.h(102): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\experimento\experimento\tokenizador.h(188): warning C4101: 'x': unreferenced local variable
+c:\users\aryel\source\repos\experimento\experimento\tokenizador.h(202): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\experimento\experimento\tokenizador.h(209): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\experimento\experimento\tokenizador.h(260): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\experimento\experimento\tokenizador.h(267): warning C4018: '<': signed/unsigned mismatch
+  experimento.vcxproj -> C:\Users\aryel\source\repos\experimento\Debug\experimento.exe
