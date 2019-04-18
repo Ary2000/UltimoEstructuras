@@ -257,10 +257,11 @@ void Tokenizador::demeTokenAux(string instruccion){
 	string instruccion1;
 	string instruccion2;
 	repeat = false;
-	while (pos < instruccion.length()) {
-		if (instruccion[pos] == ';') {
+	int x = 0;
+	while (x < instruccion.length()) {
+		if (instruccion[x] == ';') {
 			int y = 0;
-			while (y < pos) {
+			while (y < x) {
 				instruccion1.push_back(instruccion[y++]);
 			}
 			y++;
@@ -269,7 +270,7 @@ void Tokenizador::demeTokenAux(string instruccion){
 			}
 			break;
 		}
-		pos++;
+		x++;
 	}
 	if (instruccion1.length() == 0) { instruccion1 = instruccion; }
 	if (instruccion1[0] == 'w') {
