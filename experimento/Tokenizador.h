@@ -211,15 +211,18 @@ void Tokenizador::realizarInstruccion(string instruccion) {
 	}
 	enlace& variable = revisarVariable(instruccion1);
 	enlace& varSigs = realizarSigs(variable, instruccion1, 0);
-	if (instruccion2[0] == '1' || instruccion2[0] == '2' || instruccion2[0] == '3' || instruccion2[0] == '4' || instruccion2[0] == '5' || instruccion2[0] == '6' || instruccion2[0] == '7' || instruccion2[0] == '8' || instruccion2[0] == '9') {
+	if (instruccion2[0] == '0') {
+		varSigs->v = 0;
+	}
+	else if (instruccion2[0] == '1' || instruccion2[0] == '2' || instruccion2[0] == '3' || instruccion2[0] == '4' || instruccion2[0] == '5' || instruccion2[0] == '6' || instruccion2[0] == '7' || instruccion2[0] == '8' || instruccion2[0] == '9') {
 		if (uve == true) {
 			varSigs->v = stoi(instruccion2);
 		}
 	}
-	if (instruccion2[0] == '_') {
+	else if (instruccion2[0] == '_') {
 		varSigs->v = rand() % 99 + 1;
 	}
-	if (instruccion2[0] == 'n') {
+	else if (instruccion2[0] == 'n') {
 		if (instruccion2[1] == 'e') {
 			if (instruccion2[8] == '1' || instruccion2[8] == '2' || instruccion2[8] == '3' || instruccion2[8] == '4' || instruccion2[8] == '5' || instruccion2[8] == '6' || instruccion2[8] == '7' || instruccion2[8] == '8' || instruccion2[8] == '9') {
 				string numeros;
@@ -235,7 +238,7 @@ void Tokenizador::realizarInstruccion(string instruccion) {
 			}
 		}
 	}
-	else {
+	else if(instruccion2.length()) {
 		enlace& variable2 = revisarVariable(instruccion2);
 		enlace& varSigs2 = realizarSigs(variable2, instruccion2, 0);
 		if (uve) {
@@ -257,6 +260,7 @@ void Tokenizador::demeTokenAux(string instruccion){
 	string instruccion1;
 	string instruccion2;
 	repeat = false;
+	wh = false;
 	int x = 0;
 	while (x < instruccion.length()) {
 		if (instruccion[x] == ';') {
@@ -278,18 +282,29 @@ void Tokenizador::demeTokenAux(string instruccion){
 			wh = true;
 		}
 	}
-	if (instruccion1[0] == 'r') {
+	else if (instruccion1[0] == 'r') {
 		if (instruccion1[1] == 'e') {
 			repeat = true;
 		}
 	}
-	if (wh) {
-		cout << "lol";
+	else if (wh) {
+		string variableWh;
+		variableWh.push_back(instruccion1[6]);
+		enlace& variable = revisarVariable(variableWh);
+		variableWh.pop_back();
+		while (instruccion1[pos] != ')') { variableWh.push_back(instruccion1[pos++]); }
+		variableWh.push_back(instruccion1[pos++]);
+		enlace& variSigs = realizarSigs(variable, instruccion1, 0);
+		while (variSigs->v) {
+			demeTokenAux(instruccion2);
+		}
+
 	}
-	if (repeat) {
+	else if (repeat) {
 		string cantidad;
 		int pos = 7;
 		while (instruccion1[pos] != ')') { cantidad.push_back(instruccion1[pos++]); }
+		cantidad.push_back(instruccion1[pos++]);
 		int cantidadVeces = stoi(cantidad);
 		for (int vara = 0; vara < cantidadVeces; vara++) {
 			demeTokenAux(instruccion2);
