@@ -3,8 +3,11 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include "Simple_window.h" 
+#include "Graph.h"
 
 using namespace std;
+
 
 enum Tipo {variable, operador, numero, nulo};
 
@@ -43,9 +46,24 @@ enlace x;
 enlace y;
 enlace z;
 
+class win2 {
+	Simple_window * pWin;
+	string s;
 
+public:
+	win2() {
+	};
 
-
+	void ejecutar(string instruccionActual) {
+		Simple_window pWin( Point(100,100),600,400, "Instrucciones paso a paso" );
+		Text t(Point(150, 150), instruccionActual);
+		pWin.attach(t);
+		pWin.wait_for_button();
+	}
+	~win2() {
+		delete pWin;
+	}
+};
 
 struct Token {
 	Tipo tipo;
@@ -87,7 +105,9 @@ private :
 	int pos;
 	string tira;
 	bool uve = false;
+	win2 ventanita;
 public:
+	bool paso = false;
 	bool wh = false;
 	bool repeat = false;
 	Tokenizador(string entrada);
@@ -196,6 +216,9 @@ Tokenizador::Tokenizador(string entrada) {
 }
 
 void Tokenizador::realizarInstruccion(string instruccion) {
+	if (paso) {
+		ventanita.ejecutar(instruccion);
+	}
 	string instruccion1;
 	string instruccion2;
 	int x = 0;
