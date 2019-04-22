@@ -9,6 +9,7 @@ typedef Graph_lib::Line * PLinea;
 typedef Graph_lib::Text * numeros;
 typedef Graph_lib::Rectangle * Pnodo;
 typedef Graph_lib::Circle * Sig;
+//typedef Graph_lib::Point * punto;
 
 class TablaNodos {
 	Simple_window * pWin;
@@ -17,11 +18,12 @@ class TablaNodos {
 	vector<Pnodo> nodos;
 	vector<Pnodo> mNodos;
 	vector<Sig> bola;
+	vector<Point> puntos;
 public:
 	TablaNodos() {
 	};
 
-	void ejecutar(string titulo, vector<int> numero) {
+	void ejecutar(string titulo, vector<int> numero, vector<string> valor) {
 		pWin = new Simple_window{ Point(100,100),650,400,titulo };
 		Graph_lib::Rectangle r(Point(10, 10), 630, 380);
 		r.set_color(Color::white);
@@ -164,6 +166,7 @@ public:
 			pWin->attach(*intHeap[a]);
 		}
 		getNodo(numero);
+		getValNodo(numero, valor);
 		/*for (int j = 0; j < nodos.size(); j++) {
 			Pnodo n;
 			n = nodos[j];
@@ -208,6 +211,46 @@ public:
 			c = bola[numero[i]];
 			c->set_fill_color(Color::blue);
 			pWin->attach(*c);
+		}
+	}
+	void getValNodo(vector<int> numero, vector<string> valor) {
+		puntos.push_back(Point(40, 68));//1
+		puntos.push_back(Point(127, 68));//2
+		puntos.push_back(Point(214, 68));//3
+		puntos.push_back(Point(301, 68));//4
+		puntos.push_back(Point(388, 68));//5
+		puntos.push_back(Point(475, 68));//6
+		puntos.push_back(Point(562, 68));//7
+		puntos.push_back(Point(40, 168));//1
+		puntos.push_back(Point(127, 168));//2
+		puntos.push_back(Point(214, 168));//3
+		puntos.push_back(Point(301, 168));//4
+		puntos.push_back(Point(388, 168));//5
+		puntos.push_back(Point(475, 168));//6
+		puntos.push_back(Point(562, 168));//7
+		puntos.push_back(Point(301, 263));//1
+		puntos.push_back(Point(127, 263));//2
+		puntos.push_back(Point(214, 263));//3
+		puntos.push_back(Point(301, 263));//4
+		puntos.push_back(Point(388, 263));//5
+		puntos.push_back(Point(475, 263));//6
+		puntos.push_back(Point(562, 263));//7
+		puntos.push_back(Point(40, 343));//1
+		puntos.push_back(Point(127, 343));//2
+		puntos.push_back(Point(214, 343));//3
+		puntos.push_back(Point(301, 343));//4
+		puntos.push_back(Point(388, 343));//5
+		puntos.push_back(Point(475, 343));//6
+		puntos.push_back(Point(562, 340));//7
+		for (int i = 0; i < numero.size(); i++) {
+			int num = numero[i];
+			Point p = puntos[num];
+			//for (int j = 0; j < valor.size(); j++) {
+				string val = valor[i];
+				numeros m= new Graph_lib::Text(p, val);//1
+				pWin->attach(*m);
+				//delete m;
+			//}
 		}
 	}
 	~TablaNodos() {
