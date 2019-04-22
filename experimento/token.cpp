@@ -13,6 +13,7 @@ int main() {
 	//numero.push_back(12);
 	//numero.push_back(18);
 	//numero.push_back(24);
+
 	vector<string>valor;
 	//valor.push_back("4");
 	//valor.push_back("8");
