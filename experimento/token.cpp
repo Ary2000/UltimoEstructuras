@@ -69,12 +69,10 @@ int main() {
 	//valor.push_back("14");
 	//valor.push_back("15");
 	p.ejecutar("Ventana",numero,valor);
-	while(true){
 		cout << "Escriba la instruccion: ";
 		string s;
 		cin >> s;
 		Tokenizador tt = Tokenizador(s);
 		tt.demeToken();
-	}
 		
 }
