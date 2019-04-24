@@ -2,12 +2,27 @@
 c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\gui.h(107): warning C4018: '<': signed/unsigned mismatch
 c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\gui.h(112): warning C4018: '<': signed/unsigned mismatch
 c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\gui.h(117): warning C4018: '<': signed/unsigned mismatch
-c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(122): warning C4018: '<': signed/unsigned mismatch
-c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(208): warning C4101: 'x': unreferenced local variable
-c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(225): warning C4018: '<': signed/unsigned mismatch
-c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(232): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(140): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(226): warning C4101: 'x': unreferenced local variable
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(243): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(250): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(257): warning C4553: '==': result of expression not used; did you intend '='?
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(258): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(269): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(275): warning C4018: '<': signed/unsigned mismatch
 c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(288): warning C4018: '<': signed/unsigned mismatch
-c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(295): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(348): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tokenizador.h(355): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(162): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(165): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(201): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(245): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(258): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(261): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(264): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(267): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\tablanodos.h(270): warning C4018: '<': signed/unsigned mismatch
+c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\token.cpp(50): warning C4018: '<': signed/unsigned mismatch
 c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\graph.h(104): warning C4018: '<': signed/unsigned mismatch
   c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\graph.h(104): note: while compiling class template member function 'Graph_lib::Vector_ref<Graph_lib::Button>::~Vector_ref(void)'
   c:\users\aryel\source\repos\ary2000\ultimoestructuras\experimento\gui.h(97): note: see reference to function template instantiation 'Graph_lib::Vector_ref<Graph_lib::Button>::~Vector_ref(void)' being compiled

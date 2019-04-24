@@ -46,6 +46,22 @@ enlace x;
 enlace y;
 enlace z;
 
+int heapback = 0;
+
+class nodoDibujo {
+public:
+	string instruccion;
+	string v;
+	bool heapback;
+	nodoDibujo(string s, string valor, bool heap) {
+		instruccion = s;
+		v = valor;
+		heap = heapback;
+	}
+};
+
+vector<nodoDibujo> nodospDibujar;
+
 class win2 {
 	Simple_window * pWin;
 	string s;
@@ -55,9 +71,11 @@ public:
 	};
 
 	void ejecutar(string instruccionActual) {
-		Simple_window pWin( Point(100,100),600,400, "Instrucciones paso a paso" );
-		Text t(Point(150, 150), instruccionActual);
+		Simple_window pWin( Point(100,100),600,200, "Instrucciones paso a paso" );
+		Text te(Point(10, 20), "La instrucción que se esta haciendo es: ");
+		Text t(Point(260, 20), instruccionActual);
 		pWin.attach(t);
+		pWin.attach(te);
 		pWin.wait_for_button();
 	}
 	~win2() {
@@ -236,28 +254,70 @@ void Tokenizador::realizarInstruccion(string instruccion) {
 	enlace& varSigs = realizarSigs(variable, instruccion1, 0);
 	if (instruccion2[0] == '0') {
 		varSigs->v = 0;
+		varSigs->sig == nullptr;
+		for (int pos = 0; pos < nodospDibujar.size(); pos++) {
+			if (nodospDibujar[pos].instruccion == instruccion1) {
+				nodospDibujar[pos].v = "0";
+				break;
+			}
+		}
 	}
 	else if (instruccion2[0] == '1' || instruccion2[0] == '2' || instruccion2[0] == '3' || instruccion2[0] == '4' || instruccion2[0] == '5' || instruccion2[0] == '6' || instruccion2[0] == '7' || instruccion2[0] == '8' || instruccion2[0] == '9') {
 		if (uve == true) {
-			varSigs->v = stoi(instruccion2);
+			int valor = stoi(instruccion2);
+			varSigs->v = valor;
+			for (int pos = 0; pos < nodospDibujar.size(); pos++) {
+				if (nodospDibujar[pos].instruccion == instruccion1) {
+					nodospDibujar[pos].v == to_string(valor);
+					break;
+				}
+			}
+			for (int pos = 0; pos < nodospDibujar.size(); pos++) {
+				if (nodospDibujar[pos].instruccion == instruccion1) {
+					nodospDibujar[pos].v = instruccion2;
+					break;
+				}
+			}
+
+			
 		}
 	}
 	else if (instruccion2[0] == '_') {
-		varSigs->v = rand() % 99 + 1;
+		int valor = rand() % 99 + 1;
+		varSigs->v = valor;
+		for (int pos = 0; pos < nodospDibujar.size(); pos++) {
+			if (nodospDibujar[pos].instruccion == instruccion1) {
+				nodospDibujar[pos].v == to_string(valor);
+				break;
+			}
+		}
 	}
 	else if (instruccion2[0] == 'n') {
 		if (instruccion2[1] == 'e') {
+			int valor;
 			if (instruccion2[8] == '1' || instruccion2[8] == '2' || instruccion2[8] == '3' || instruccion2[8] == '4' || instruccion2[8] == '5' || instruccion2[8] == '6' || instruccion2[8] == '7' || instruccion2[8] == '8' || instruccion2[8] == '9') {
 				string numeros;
 				int posicion = 8;
 				while (instruccion2[posicion] != ')') {
 					numeros.push_back(instruccion2[posicion]);
 					posicion++;
+					break;
 				}
-				varSigs = new Nodo(stoi(numeros));
+				valor = stoi(numeros);
+				varSigs = new Nodo(valor);
 			}
-			if (instruccion2[8] == '_') {
+			else if(instruccion2[8] == '_') {
+				valor = rand() % 99 + 1;
 				varSigs = new Nodo(rand() % 99 + 1);
+			}
+			if (heapback) {
+				nodoDibujo p = nodoDibujo(instruccion1, to_string(valor), true);
+				nodospDibujar.push_back(p);
+			}
+			else {
+
+				nodoDibujo p = nodoDibujo(instruccion1, to_string(valor), false);
+				nodospDibujar.push_back(p);
 			}
 		}
 	}
@@ -265,7 +325,7 @@ void Tokenizador::realizarInstruccion(string instruccion) {
 		enlace& variable2 = revisarVariable(instruccion2);
 		enlace& varSigs2 = realizarSigs(variable2, instruccion2, 0);
 		if (uve) {
-			varSigs->v = varSigs->v;
+			varSigs->v = varSigs2->v;
 		}
 		else {
 			varSigs = varSigs2;
